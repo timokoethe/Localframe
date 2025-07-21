@@ -7,14 +7,9 @@
 
 **Localframe** is a simple SwiftUI image generation app for iOS 26, powered entirely by Apple’s on-device Foundation Models via Image Playground. Designed for demonstration purposes, Localframe enables fast, private, and completely offline image creation — no internet connection or server required.
 
+Localframe showcases how to integrate Apple’s [Image Playground framework](https://developer.apple.com/documentation/imageplayground) into a native iOS experience using SwiftUI and the new Foundation Models tools.
+
 ## ✨ Features
-
-- 🧠 **On-device LLM**: Uses Apple’s local Foundation Models for text generation.
-- 🔐 **Privacy-first**: All conversations stay on your device. No data is sent to the cloud.
-- ⚡ **Fast & Offline**: No internet needed. Responses are generated locally.
-- 💬 **Minimalist Chat UI**: Clean SwiftUI interface for interacting with the model.
-- 🗑️ **No history**: Conversation is not saved after closing the app.
-
 
 - 🖼️ **On-device Image Generation**: Uses Apple’s local Image Playground framework.
 - 🔐 **Privacy-first**: All prompts and generated images stay on your device. No data is sent to the cloud.
