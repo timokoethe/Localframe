@@ -1,5 +1,5 @@
 //
-//  GenerationView.swift
+//  ProgressView.swift
 //  Localframe
 //
 //  Created by Timo Köthe on 27.07.25.
@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-struct GenerationView: View {
+struct ProgressView: View {
     @Bindable var vm: HomeViewModel
     var body: some View {
-        Text("Is Generating")
+        VStack {
+            Text("Is Generating")
+        }
     }
 }
 
 #Preview {
-    GenerationView(vm: HomeViewModel())
+    ProgressView(vm: HomeViewModel())
 }
