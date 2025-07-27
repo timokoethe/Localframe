@@ -39,14 +39,6 @@ class HomeViewModel {
         }
     }
     
-    
-    /// Checks the availability of the image creator.
-    /// - Returns: true if the model is avaiable, otherwise false
-    func isCreatorAvailable() -> Bool {
-        return imageCreator != nil
-    }
-    
-    
     func generateImage() async throws {
         do {
             self.state = .isGenerating
