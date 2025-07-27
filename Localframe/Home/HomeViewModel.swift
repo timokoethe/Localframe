@@ -72,6 +72,13 @@ class HomeViewModel {
             self.state = .error
         }
     }
+    
+    func reset() {
+        self.creatorError = nil
+        self.generatedImages = nil
+        self.state = .idle
+        self.prompt = ""
+    }
 }
 
 enum state {

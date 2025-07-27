@@ -21,15 +21,7 @@ struct HomeView: View {
         case .isGenerating:
             Text("Generating")
         case .generated:
-            if let images = vm.generatedImages {
-                VStack(){
-                    ForEach(images, id: \.self){ selectedImage in
-                        Image(uiImage: UIImage(cgImage: selectedImage))
-                            .resizable()
-                            .frame(width: 200, height: 200)
-                    }
-                }
-            }
+            FinalView(vm: vm)
         case .error:
             ErrorView(error: vm.creatorError)
         }
