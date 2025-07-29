@@ -9,12 +9,10 @@ import SwiftUI
 import UIKit
 import ImagePlayground
 
-
 struct HomeView: View {
     @State private var vm = HomeViewModel()
     
     var body: some View {
-        
         switch vm.state {
         case .idle:
             GeneratorView(vm: vm)

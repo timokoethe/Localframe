@@ -11,7 +11,6 @@ struct ProgressionView: View {
     @Bindable var vm: HomeViewModel
     var body: some View {
         VStack {
-            Text("Is Generating")
             ProgressView()
         }
     }

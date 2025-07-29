@@ -23,6 +23,8 @@ struct FinalView: View {
             }
 
             Button("Restart", action: vm.reset)
+                .buttonStyle(.borderedProminent)
+                .padding()
         }
         .padding()
     }

@@ -15,12 +15,17 @@ struct GeneratorView: View {
             Picker("Style", selection: $vm.generationStyle) {
                 ForEach(vm.styles, id: \.self) { style in
                     Text(style.id.description)
-                    
                 }
             }
+            .pickerStyle(.segmented)
+            .padding()
+            
             TextField("Prompt ...", text: $vm.prompt)
-            
-            
+                .textFieldStyle(.roundedBorder)
+                .padding()
+                
+            Spacer()
+
             Button("Generate") {
                 Task {
                     do {
@@ -31,8 +36,8 @@ struct GeneratorView: View {
 
                 }
             }
-            
-            
+            .buttonStyle(.borderedProminent)
+            .disabled(vm.prompt.isEmpty)
         }
     }
 }
