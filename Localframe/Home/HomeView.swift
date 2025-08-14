@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var vm = HomeViewModel()
     
     var body: some View {
+        // Shows the corresponding views depending on the state.
         switch vm.state {
         case .idle:
             GeneratorView(vm: vm)
