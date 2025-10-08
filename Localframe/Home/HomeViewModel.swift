@@ -64,11 +64,10 @@ class HomeViewModel {
     func generateImage() async throws {
         do {
             self.state = .isGenerating
-            let generationStyle = self.generationStyle
             
             let images = imageCreator!.images(
                 for: [.text(self.prompt)],
-                style: generationStyle,
+                style: self.generationStyle,
                 limit: 2)
             
             for try await image in images {

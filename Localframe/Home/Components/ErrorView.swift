@@ -8,6 +8,9 @@
 import SwiftUI
 import ImagePlayground
 
+/// A view that displays that no content is available..
+///
+/// Error messages are presented inside a paddedcontainer for readability.
 struct ErrorView: View {
     let error: ImageCreator.Error?
     
