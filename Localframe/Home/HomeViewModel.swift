@@ -61,7 +61,8 @@ class HomeViewModel {
         }
     }
     
-    func generateImage() async throws {
+    /// Generates an image based on the user's current input.
+    func generateImage() async {
         do {
             self.state = .isGenerating
             
@@ -79,13 +80,13 @@ class HomeViewModel {
                 }
             }
             self.state = .generated
-        }
-        catch {
+        } catch {
             print(error.localizedDescription)
             self.state = .error
         }
     }
     
+    /// Resets the user interface including the reset of all used variables.
     func reset() {
         self.creatorError = nil
         self.generatedImages = nil

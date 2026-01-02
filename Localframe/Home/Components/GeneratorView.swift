@@ -28,12 +28,7 @@ struct GeneratorView: View {
 
             Button("Generate") {
                 Task {
-                    do {
-                        try await vm.generateImage()
-                    } catch {
-                        print("Error")
-                    }
-
+                    await vm.generateImage()
                 }
             }
             .buttonStyle(.borderedProminent)
