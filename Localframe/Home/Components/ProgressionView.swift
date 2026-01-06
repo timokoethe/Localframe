@@ -11,8 +11,26 @@ struct ProgressionView: View {
     @Bindable var vm: HomeViewModel
     var body: some View {
         VStack {
-            ProgressView()
+            ZStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color(.secondarySystemBackground))
+                ProgressView()
+            }
+            .aspectRatio(1, contentMode: .fit)
+
+            ZStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color(.secondarySystemBackground))
+                ProgressView()
+            }
+            .aspectRatio(1, contentMode: .fit)
+            
+            Button("Restart", action: vm.reset)
+                .buttonStyle(.borderedProminent)
+                .disabled(vm.state == .isGenerating)
+                .padding()
         }
+        .padding()
     }
 }
 

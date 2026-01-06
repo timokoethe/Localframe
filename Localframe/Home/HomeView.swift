@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 import ImagePlayground
 
 struct HomeView: View {
@@ -18,7 +17,7 @@ struct HomeView: View {
         case .idle:
             GeneratorView(vm: vm)
         case .isGenerating:
-            Text("Generating")
+            ProgressionView(vm: vm)
         case .generated:
             FinalView(vm: vm)
         case .error:

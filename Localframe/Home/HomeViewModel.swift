@@ -19,7 +19,6 @@ import ImagePlayground
 ///
 /// - Properties:
 ///   - `generatedImages`: Stores the images generated from the prompt.
-///   - `isGenerationStarted`: Indicates if the generation process has started.
 ///   - `prompt`: The user input prompt for image generation.
 ///   - `creatorError`: Stores any errors from the image generation process.
 ///   - `generationStyle`: The selected visual style for image generation.
@@ -32,8 +31,7 @@ import ImagePlayground
 ///   - `reset()`: Resets all properties to their initial values.
 @Observable
 class HomeViewModel {
-    var generatedImages: [CGImage]?
-    var isGenerationStarted: Bool
+    var generatedImages: [CGImage]
     var prompt: String
     var creatorError: ImageCreator.Error?
     var generationStyle: ImagePlaygroundStyle
@@ -43,8 +41,7 @@ class HomeViewModel {
     let styles: [ImagePlaygroundStyle]
 
     init() {
-        self.generatedImages = nil
-        self.isGenerationStarted = false
+        self.generatedImages = []
         self.prompt = ""
         self.creatorError = nil
         self.generationStyle = .animation
@@ -72,12 +69,7 @@ class HomeViewModel {
                 limit: 2)
             
             for try await image in images {
-                if let generatedImages = generatedImages {
-                    self.generatedImages = generatedImages + [image.cgImage]
-                }
-                else {
-                    self.generatedImages = [image.cgImage]
-                }
+                self.generatedImages = generatedImages + [image.cgImage]
             }
             self.state = .generated
         } catch {
@@ -89,7 +81,7 @@ class HomeViewModel {
     /// Resets the user interface including the reset of all used variables.
     func reset() {
         self.creatorError = nil
-        self.generatedImages = nil
+        self.generatedImages = []
         self.state = .idle
         self.prompt = ""
     }
