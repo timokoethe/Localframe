@@ -58,7 +58,7 @@ class HomeViewModel {
         }
     }
     
-    /// Generates an image based on the user's current input.
+    /// Generates two images based on the user's current input.
     func generateImage() async {
         do {
             self.state = .isGenerating
@@ -73,9 +73,15 @@ class HomeViewModel {
             }
             self.state = .generated
         } catch {
-            print(error.localizedDescription)
             self.state = .error
         }
+    }
+    
+    /// Returns a SwiftUI `Image` created from a `CGImage`.
+    /// - Parameter cgimage: a `CGImage` that should be transformed
+    /// - Returns: a SwiftUI `Image`
+    func image(for cgimage : CGImage) -> Image {
+        return Image(uiImage: UIImage(cgImage: cgimage))
     }
     
     /// Resets the user interface including the reset of all used variables.

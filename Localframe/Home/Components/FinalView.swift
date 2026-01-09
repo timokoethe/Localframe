@@ -12,7 +12,7 @@ struct FinalView: View {
     var body: some View {
         VStack {
             if !vm.generatedImages.isEmpty {
-                VStack(){
+                VStack {
                     ForEach(vm.generatedImages, id: \.self){ selectedImage in
                         Image(uiImage: UIImage(cgImage: selectedImage))
                             .resizable()

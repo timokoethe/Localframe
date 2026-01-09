@@ -1,9 +1,9 @@
 # Localframe for iOS
+
 [![License: MIT](https://img.shields.io/badge/license-MIT-orange)](https://opensource.org/license/mit)
 ![Framework](https://img.shields.io/badge/SwiftUI-orange)
 ![Platform](https://img.shields.io/badge/Platforms-iOS-orange)
 ![Apple](https://img.shields.io/badge/Apple-000000?style=flat&logo=apple)
-
 
 **Localframe** is a simple SwiftUI image generation app for iOS 26, powered entirely by Apple’s on-device Foundation Models via Image Playground. Designed for demonstration purposes, Localframe enables fast, private, and completely offline image creation — no internet connection or server required.
 
@@ -20,12 +20,15 @@ Localframe showcases how to integrate Apple’s [Image Playground framework](htt
 - 🗑️ **No storage**: Generated images are not saved after closing the app.
 
 ## 🛠 Manual
+
 - **Import the Library**: To work with [Foundation Models](https://developer.apple.com/documentation/imageplayground), you must import the library in every file where you intend to use them. Go with:
+
     ```swift
     import ImagePlayground
     ```
 
 - **Create an ImageCreator object**: To start image creation, you need to create an [ImageCreator](https://developer.apple.com/documentation/ImagePlayground/ImageCreator) object. In case of failure you will get an ```ImageCreator.Error```:
+
     ```swift
     do {
         try await self.imageCreator = ImageCreator()
@@ -35,6 +38,7 @@ Localframe showcases how to integrate Apple’s [Image Playground framework](htt
     ```
 
 - **Generate an Image**: To create images with the model, simply call the method and pass in your text prompt (as a ```String```) along with the desired style (as ```ImagePlaygroundStyle```).
+
     ```swift
     let images = imageCreator!.images(
         for: [.text(self.prompt)],
@@ -43,12 +47,9 @@ Localframe showcases how to integrate Apple’s [Image Playground framework](htt
     ```
 
 - **Save Images**: To display the generated images, store them in an array:
+
     ```swift
     for try await image in images {
-        if let generatedImages = generatedImages {
-            self.generatedImages = generatedImages + [image.cgImage]
-        } else {
-            self.generatedImages = [image.cgImage]
-        }
+        self.generatedImages = generatedImages + [image.cgImage]
     }
     ```
