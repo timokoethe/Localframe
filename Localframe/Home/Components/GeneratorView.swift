@@ -20,19 +20,9 @@ struct GeneratorView: View {
             .pickerStyle(.segmented)
             .padding()
             
-            TextField("Prompt ...", text: $vm.prompt)
-                .textFieldStyle(.roundedBorder)
-                .padding()
-                
             Spacer()
-
-            Button("Generate") {
-                Task {
-                    await vm.generateImage()
-                }
-            }
-            .buttonStyle(.borderedProminent)
-            .disabled(vm.prompt.isEmpty)
+            
+            TypebarView(vm: vm)
         }
     }
 }
