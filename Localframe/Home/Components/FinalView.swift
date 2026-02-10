@@ -25,7 +25,8 @@ struct FinalView: View {
             Spacer()
 
             Button("Restart", action: vm.reset)
-                .buttonStyle(.borderedProminent)
+                .foregroundStyle(.purple)
+                .buttonStyle(.glass)
                 .padding()
         }
         .padding()

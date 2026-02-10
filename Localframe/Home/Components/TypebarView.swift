@@ -13,8 +13,7 @@ import SwiftUI
 /// - A `TextField` for entering user input
 /// - A send button with a paper plane icon that triggers the model response
 ///
-/// The send button is disabled while an image is being generated (`isGenerating`)
-/// or when the input field is empty.
+/// The send button is disabled when the input field is empty.
 /// The entire type bar is styled with padding and a rounded rectangular border
 /// to distinguish it from the chat area.
 ///
@@ -25,6 +24,7 @@ struct TypebarView: View {
     var body: some View {
         HStack {
             TextField("Type here ...", text: $vm.prompt)
+                .padding(.horizontal, 6)
 
             Button(role: .confirm) {
                 Task {
@@ -35,16 +35,14 @@ struct TypebarView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: 30)
-                    .padding(2)
+                    .padding(.trailing, 6)
+                    .padding(.vertical, 2)
             }
-            .foregroundStyle(vm.prompt.isEmpty ? Color.gray : Color(red: 0.459, green: 0.333, blue: 0.902))
+            .foregroundStyle(vm.prompt.isEmpty ? .gray : .purple)
             .disabled(vm.prompt.isEmpty ? true : false)
         }
-        .padding(5)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.gray, lineWidth: 2)
-        )
+        .padding(6)
+        .glassEffect()
         .padding()
     }
 }

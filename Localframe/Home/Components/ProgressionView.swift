@@ -26,9 +26,9 @@ struct ProgressionView: View {
             .aspectRatio(1, contentMode: .fit)
             
             Button("Restart", action: vm.reset)
-                .buttonStyle(.borderedProminent)
-                .disabled(vm.state == .isGenerating)
+                .buttonStyle(.glass)
                 .padding()
+                .disabled(vm.state == .isGenerating)
         }
         .padding()
     }

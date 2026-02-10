@@ -21,8 +21,9 @@ struct GeneratorView: View {
             .padding()
             
             Spacer()
-            
-            TypebarView(vm: vm)
+                .safeAreaInset(edge: .bottom, spacing: 0) {
+                    TypebarView(vm: vm)
+                }
         }
     }
 }
