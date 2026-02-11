@@ -7,6 +7,23 @@
 
 import SwiftUI
 
+/// A view that displays the final generated images and provides a restart option.
+///
+/// The final view consists of:
+/// - A vertical list of generated images displayed with rounded corners
+/// - A restart button to reset the generation workflow
+///
+/// Generated images are retrieved from `generatedImages` on the associated
+/// `HomeViewModel` and rendered using SwiftUI `Image` views.
+///
+/// Each image is scaled to fit its container and clipped to a rounded
+/// rectangular shape for a polished appearance.
+///
+/// The restart button invokes the `reset` function on the view model and allows
+/// the user to return to the initial generation state.
+///
+/// This view is typically presented after the generation process completes
+/// to showcase results and allow starting a new generation cycle.
 struct FinalView: View {
     @Bindable var vm: HomeViewModel
     var body: some View {

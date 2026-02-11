@@ -8,9 +8,20 @@
 import SwiftUI
 import ImagePlayground
 
-/// A view that displays that no content is available..
+/// A view that presents an error state when image generation fails.
 ///
-/// Error messages are presented inside a paddedcontainer for readability.
+/// The error view consists of:
+/// - A system-styled content unavailable view displaying an error message
+/// - A fallback message for unexpected or unknown errors
+///
+/// If an `ImageCreator.Error` is provided, its localized description is shown
+/// to give the user more information about what went wrong.
+///
+/// When no specific error is available, a generic "Unexpected Error" message
+/// is displayed instead.
+///
+/// This view is typically presented in place of main content to clearly
+/// communicate failure states and prevent further interaction until resolved.
 struct ErrorView: View {
     let error: ImageCreator.Error?
     

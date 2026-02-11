@@ -36,7 +36,7 @@ class HomeViewModel {
     var creatorError: ImageCreator.Error?
     var generationStyle: ImagePlaygroundStyle
     var imageCreator: ImageCreator?
-    var state: state = .idle
+    var state: ViewState = .idle
     
     let styles: [ImagePlaygroundStyle]
 
@@ -93,7 +93,7 @@ class HomeViewModel {
     }
 }
 
-enum state {
+enum ViewState {
     case idle
     case isGenerating
     case generated
