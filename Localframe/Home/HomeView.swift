@@ -26,7 +26,7 @@ struct HomeView: View {
     
     var body: some View {
         // Shows the corresponding views depending on the state.
-        switch vm.state {
+        switch vm.viewState {
         case .idle:
             GeneratorView(vm: vm)
         case .isGenerating:
@@ -34,7 +34,7 @@ struct HomeView: View {
         case .generated:
             FinalView(vm: vm)
         case .error:
-            ErrorView(error: vm.creatorError)
+            ErrorView(error: vm.error)
         }
     }
 }

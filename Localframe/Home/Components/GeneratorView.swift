@@ -27,8 +27,8 @@ struct GeneratorView: View {
     @Bindable var vm: HomeViewModel
     var body: some View {
         VStack {
-            Picker("Style", selection: $vm.generationStyle) {
-                ForEach(vm.styles, id: \.self) { style in
+            Picker("Style", selection: $vm.selectedStyle) {
+                ForEach(vm.availableStyles, id: \.self) { style in
                     Text(style.id.description)
                 }
             }

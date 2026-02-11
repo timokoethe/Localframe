@@ -23,12 +23,12 @@ struct TypebarView: View {
     
     var body: some View {
         HStack {
-            TextField("Type here ...", text: $vm.prompt)
+            TextField("Type here ...", text: $vm.inputPrompt)
                 .padding(.horizontal, 6)
 
             Button(role: .confirm) {
                 Task {
-                    await vm.generateImage()
+                    await vm.generateImages()
                 }
             } label: {
                 Image(systemName: "paperplane.fill")
@@ -38,8 +38,8 @@ struct TypebarView: View {
                     .padding(.trailing, 6)
                     .padding(.vertical, 2)
             }
-            .foregroundStyle(vm.prompt.isEmpty ? .gray : .purple)
-            .disabled(vm.prompt.isEmpty ? true : false)
+            .foregroundStyle(vm.inputPrompt.isEmpty ? .gray : .purple)
+            .disabled(vm.inputPrompt.isEmpty ? true : false)
         }
         .padding(6)
         .glassEffect()

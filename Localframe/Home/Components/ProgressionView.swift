@@ -42,7 +42,7 @@ struct ProgressionView: View {
             Button("Restart", action: vm.reset)
                 .buttonStyle(.glass)
                 .padding()
-                .disabled(vm.state == .isGenerating)
+                .disabled(vm.viewState == .isGenerating)
         }
         .padding()
     }

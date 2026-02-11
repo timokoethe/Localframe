@@ -31,65 +31,74 @@ import ImagePlayground
 ///   - `reset()`: Resets all properties to their initial values.
 @Observable
 class HomeViewModel {
-    var generatedImages: [CGImage]
-    var prompt: String
-    var creatorError: ImageCreator.Error?
-    var generationStyle: ImagePlaygroundStyle
-    var imageCreator: ImageCreator?
-    var state: ViewState = .idle
-    
-    let styles: [ImagePlaygroundStyle]
+    // MARK: - UI State
+    var generatedCGImages: [CGImage] = []
+    var inputPrompt: String = ""
+    var error: ImageCreator.Error?
+    var selectedStyle: ImagePlaygroundStyle = .animation
+    var viewState: ViewState = .idle
+
+    // MARK: - Dependencies
+    private var imageCreator: ImageCreator?
+
+    // MARK: - Configuration
+    let availableStyles: [ImagePlaygroundStyle] = [.animation, .illustration, .sketch]
 
     init() {
-        self.generatedImages = []
-        self.prompt = ""
-        self.creatorError = nil
-        self.generationStyle = .animation
-        self.styles = [.animation, .illustration, .sketch]
-        self.imageCreator = nil
-        
-        Task {
-            do {
-                try await self.imageCreator = ImageCreator()
-            } catch {
-                self.creatorError = error as? ImageCreator.Error
-                self.state = .error
-            }
+        Task { await loadCreator() }
+    }
+
+    private func loadCreator() async {
+        do {
+            imageCreator = try await ImageCreator()
+        } catch {
+            self.error = error as? ImageCreator.Error
+            self.viewState = .error
         }
     }
     
-    /// Generates two images based on the user's current input.
-    func generateImage() async {
+    /// Generates images based on the user's current prompt and selected style.
+    func generateImages(limit: Int = 2) async {
+        guard let imageCreator else {
+            self.viewState = .error
+            return
+        }
+
         do {
-            self.state = .isGenerating
-            
-            let images = imageCreator!.images(
-                for: [.text(self.prompt)],
-                style: self.generationStyle,
-                limit: 2)
-            
-            for try await image in images {
-                self.generatedImages = generatedImages + [image.cgImage]
+            viewState = .isGenerating
+            generatedCGImages.removeAll(keepingCapacity: true)
+
+            let stream = imageCreator.images(
+                for: [.text(inputPrompt)],
+                style: selectedStyle,
+                limit: limit
+            )
+
+            for try await image in stream {
+                generatedCGImages.append(image.cgImage)
             }
-            self.state = .generated
+
+            viewState = .generated
         } catch {
-            self.state = .error
+            // Falls ImageCreator.Error sinnvoll ist, hier mappen:
+            self.error = error as? ImageCreator.Error
+            viewState = .error
         }
     }
     
     /// Returns a SwiftUI `Image` created from a `CGImage`.
     /// - Parameter cgimage: a `CGImage` that should be transformed
     /// - Returns: a SwiftUI `Image`
-    func image(for cgimage : CGImage) -> Image {
+    func image(for cgimage: CGImage) -> Image {
         return Image(uiImage: UIImage(cgImage: cgimage))
     }
     
-    /// Resets the user interface including the reset of all used variables.
+    /// Resets the generation workflow and clears all user-visible state.
     func reset() {
-        self.creatorError = nil
-        self.generatedImages = []
-        self.state = .idle
-        self.prompt = ""
+        error = nil
+        generatedCGImages.removeAll()
+        viewState = .idle
+        inputPrompt = ""
     }
 }
 

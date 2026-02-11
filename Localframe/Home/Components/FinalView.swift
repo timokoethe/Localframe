@@ -28,9 +28,9 @@ struct FinalView: View {
     @Bindable var vm: HomeViewModel
     var body: some View {
         VStack {
-            if !vm.generatedImages.isEmpty {
+            if !vm.generatedCGImages.isEmpty {
                 VStack {
-                    ForEach(vm.generatedImages, id: \.self){ selectedImage in
+                    ForEach(vm.generatedCGImages, id: \.self){ selectedImage in
                         Image(uiImage: UIImage(cgImage: selectedImage))
                             .resizable()
                             .scaledToFit()
@@ -54,10 +54,10 @@ struct FinalView: View {
     @Previewable @State var vm = HomeViewModel()
 
     if let cgImage = UIImage(named: "Image01.Test")?.cgImage {
-        vm.generatedImages = [cgImage]
+        vm.generatedCGImages = [cgImage]
     }
     if let cgImage = UIImage(named: "Image02.Test")?.cgImage {
-        vm.generatedImages.append(cgImage)
+        vm.generatedCGImages.append(cgImage)
     }
 
     return FinalView(vm: vm)
