@@ -33,7 +33,7 @@ Localframe showcases how to integrate Apple’s [Image Playground framework](htt
     do {
         try await self.imageCreator = ImageCreator()
     } catch {
-        self.creatorError = error as? ImageCreator.Error
+        self.error = error as? ImageCreator.Error
     }
     ```
 
@@ -41,8 +41,8 @@ Localframe showcases how to integrate Apple’s [Image Playground framework](htt
 
     ```swift
     let images = imageCreator!.images(
-        for: [.text(self.prompt)],
-        style: self.generationStyle,
+        for: [.text(self.inputPrompt)],
+        style: self.selectedStyle,
         limit: 2)
     ```
 
@@ -50,6 +50,6 @@ Localframe showcases how to integrate Apple’s [Image Playground framework](htt
 
     ```swift
     for try await image in images {
-        self.generatedImages = generatedImages + [image.cgImage]
+        generatedCGImages.append(image.cgImage)
     }
     ```
