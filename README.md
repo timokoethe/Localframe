@@ -56,3 +56,7 @@ Localframe showcases how to integrate Apple’s [Image Playground framework](htt
         generatedCGImages.append(image.cgImage)
     }
     ```
+
+## License
+
+Localframe is available under the MIT License. See [LICENSE](LICENSE) for the full license text.
