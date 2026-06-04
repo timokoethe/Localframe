@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		25CA3F262FD19D6700DE5FF2 /* Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 25CA3F252FD19D6700DE5FF2 /* Icon.icon */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		25768D9C2E2C016B00551853 /* Localframe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Localframe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		25CA3F252FD19D6700DE5FF2 /* Icon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Icon.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +37,7 @@
 		25768D932E2C016B00551853 = {
 			isa = PBXGroup;
 			children = (
+				25CA3F252FD19D6700DE5FF2 /* Icon.icon */,
 				25768D9E2E2C016B00551853 /* Localframe */,
 				25768D9D2E2C016B00551853 /* Products */,
 			);
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25CA3F262FD19D6700DE5FF2 /* Icon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +258,7 @@
 		25768DA82E2C016C00551853 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Icon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -289,7 +296,7 @@
 		25768DA92E2C016C00551853 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Icon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
