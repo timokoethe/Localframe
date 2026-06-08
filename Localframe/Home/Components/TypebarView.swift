@@ -38,7 +38,7 @@ struct TypebarView: View {
                     .padding(.trailing, 6)
                     .padding(.vertical, 2)
             }
-            .foregroundStyle(vm.inputPrompt.isEmpty ? .gray : .purple)
+            .foregroundStyle(vm.inputPrompt.isEmpty ? .gray : Color("Tint"))
             .disabled(vm.inputPrompt.isEmpty ? true : false)
         }
         .padding(6)
