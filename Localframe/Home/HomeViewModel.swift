@@ -37,6 +37,7 @@ class HomeViewModel {
     var error: ImageCreator.Error?
     var selectedStyle: ImagePlaygroundStyle = .animation
     var viewState: ViewState = .idle
+    private(set) var isCreatorReady = false
 
     // MARK: - Dependencies
     private var imageCreator: ImageCreator?
@@ -51,6 +52,7 @@ class HomeViewModel {
     private func loadCreator() async {
         do {
             imageCreator = try await ImageCreator()
+            isCreatorReady = true
         } catch {
             self.error = error as? ImageCreator.Error
             self.viewState = .error

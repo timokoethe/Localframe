@@ -38,12 +38,16 @@ struct TypebarView: View {
                     .padding(.trailing, 6)
                     .padding(.vertical, 2)
             }
-            .foregroundStyle(vm.inputPrompt.isEmpty ? .gray : Color("Tint"))
-            .disabled(vm.inputPrompt.isEmpty ? true : false)
+            .foregroundStyle(canGenerate ? Color("Tint") : .gray)
+            .disabled(!canGenerate)
         }
         .padding(6)
         .glassEffect()
         .padding()
+    }
+
+    private var canGenerate: Bool {
+        vm.isCreatorReady && !vm.inputPrompt.isEmpty
     }
 }
 
