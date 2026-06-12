@@ -38,8 +38,6 @@ body:
         - Prompt UI
         - Image generation
         - Generated image display
-        - Image Playground availability screen
-        - Settings screen
         - Build or project setup
         - Documentation
         - Not sure
@@ -66,20 +64,6 @@ body:
       placeholder: Xcode 26.x
     validations:
       required: false
-  - type: dropdown
-    id: model_availability
-    attributes:
-      label: Image Playground availability
-      description: What did Localframe show for the on-device image generation model?
-      options:
-        - Available
-        - Device not eligible
-        - Apple Intelligence not enabled
-        - Model not ready
-        - Model unavailable for another reason
-        - Not sure
-    validations:
-      required: true
   - type: textarea
     id: evidence
     attributes:

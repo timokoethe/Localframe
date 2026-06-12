@@ -26,8 +26,6 @@ body:
         - Prompt UI
         - Image generation
         - Generated image display
-        - Image Playground availability handling
-        - Settings screen
         - Documentation
         - Build or project setup
     validations:
