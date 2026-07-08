@@ -80,7 +80,7 @@ class HomeViewModel {
                 generatedCGImages.append(image.cgImage)
             }
 
-            viewState = .generated
+            viewState = generatedCGImages.isEmpty ? .error : .generated
         } catch {
             // Falls ImageCreator.Error sinnvoll ist, hier mappen:
             self.error = error as? ImageCreator.Error
