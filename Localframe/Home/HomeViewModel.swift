@@ -30,6 +30,7 @@ import ImagePlayground
 ///   - `generateImage()`: Asynchronously generates images from the prompt and updates state.
 ///   - `reset()`: Resets all properties to their initial values.
 @Observable
+@MainActor
 class HomeViewModel {
     // MARK: - UI State
     var generatedCGImages: [CGImage] = []
