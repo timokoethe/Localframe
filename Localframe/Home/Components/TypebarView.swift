@@ -11,13 +11,13 @@ import SwiftUI
 ///
 /// The type bar consists of:
 /// - A `TextField` for entering user input
-/// - A send button with a paper plane icon that triggers the model response
+/// - A send button with a paper plane icon that starts image generation
 ///
 /// The send button is disabled when the input field is empty.
 /// The entire type bar is styled with padding and a rounded rectangular border
-/// to distinguish it from the chat area.
+/// to distinguish it from the generation area.
 ///
-/// This view is typically placed at the bottom of the chat screen as the main input control.
+/// This view is typically placed at the bottom of the generation screen as the main input control.
 struct TypebarView: View {
     @Bindable var vm: HomeViewModel
     

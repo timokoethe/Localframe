@@ -18,10 +18,10 @@ import ImagePlayground
 /// the state. The view model is observable and is designed for use with SwiftUI views.
 ///
 /// - Properties:
-///   - `generatedImages`: Stores the images generated from the prompt.
+///   - `generatedCGImages`: Stores the images generated from the prompt.
 ///   - `prompt`: The user input prompt for image generation.
-///   - `creatorError`: Stores any errors from the image generation process.
-///   - `generationStyle`: The selected visual style for image generation.
+///   - `error`: Stores any errors from the image generation process.
+///   - `selectedStyle`: The selected visual style for image generation.
 ///   - `imageCreator`: The image creator instance responsible for generating images.
 ///   - `state`: The current state of the generation process (idle, isGenerating, generated and error).
 ///   - `styles: The available styles for image generation.
@@ -83,7 +83,6 @@ class HomeViewModel {
 
             viewState = generatedCGImages.isEmpty ? .error : .generated
         } catch {
-            // Falls ImageCreator.Error sinnvoll ist, hier mappen:
             self.error = error as? ImageCreator.Error
             viewState = .error
         }

@@ -1,6 +1,6 @@
 //
-//  PlaygroundView.swift
-//  auronexa
+//  HomeView.swift
+//  Localframe
 //
 //  Created by Timo Köthe on 02.07.25.
 //

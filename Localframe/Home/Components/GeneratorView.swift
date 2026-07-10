@@ -15,7 +15,7 @@ import ImagePlayground
 /// - A type bar anchored at the bottom for entering and submitting prompts
 ///
 /// The picker displays all available styles from the associated `HomeViewModel`
-/// and binds the current selection to `generationStyle`.
+/// and binds the current selection to `selectedStyle`.
 ///
 /// The `TypebarView` is inserted using a safe area inset at the bottom edge,
 /// ensuring it stays anchored above system UI elements while remaining visually

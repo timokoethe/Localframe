@@ -13,7 +13,7 @@ import SwiftUI
 /// - A vertical list of generated images displayed with rounded corners
 /// - A restart button to reset the generation workflow
 ///
-/// Generated images are retrieved from `generatedImages` on the associated
+/// Generated images are retrieved from `generatedCGImages` on the associated
 /// `HomeViewModel` and rendered using SwiftUI `Image` views.
 ///
 /// Each image is scaled to fit its container and clipped to a rounded
