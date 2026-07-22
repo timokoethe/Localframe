@@ -19,14 +19,14 @@ Localframe is a demonstration project. It is not production-ready, not maintaine
 
 ### iOS 27 warning
 
-This app uses Apple’s `ImageCreator` class. Apple announced on June 11, 2026 that `ImageCreator` is discontinued and will no longer work on iOS 27, iPadOS 27, macOS 27, and visionOS 27 or later.
+This app uses Apple’s `ImageCreator` class for direct programmatic on-device image generation. `ImageCreator` is deprecated as of iOS 27. Apple announced on June 11, 2026 that the class is being discontinued and will no longer work on iOS 27, iPadOS 27, macOS 27, and visionOS 27 or later.
 
 What that means for this repository:
 
 - iOS 26 is the intended showcase target.
-- iOS 27 beta builds may compile with warnings, but `ImageCreator` features can fail at runtime.
-- Public iOS 27 SDKs are expected to stop compiling code that depends on `ImageCreator`.
-- For iOS 27+, Apple recommends presenting the system-managed Image Playground sheet or using another image generation service.
+- On iOS 27 beta releases, the code continues to compile with Xcode warnings, but apps using `ImageCreator` do not function in TestFlight and cause a runtime error.
+- For public iOS 27 releases, code using `ImageCreator` no longer compiles and those features no longer work.
+- Apple recommends migrating to the system-managed Image Playground sheet or another image generation service. A remote service is intentionally outside this repository's fully on-device scope.
 
 See Apple’s announcement: [Deprecation of the ImageCreator class](https://developer.apple.com/news/?id=dz9wvq0r).
 
@@ -51,7 +51,7 @@ The iOS Simulator is not a supported runtime for Image Playground image generati
 
 - Image generation does not work in the iOS Simulator.
 - The app targets iOS 26 and depends on `ImageCreator`.
-- `ImageCreator` is discontinued for iOS 27 and later.
+- `ImageCreator` is deprecated as of iOS 27, and Apple has announced that it will no longer work on iOS 27 or later.
 - Error handling is intentionally minimal for showcase purposes.
 
 ## 🛠 API walkthrough
