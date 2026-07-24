@@ -11,13 +11,10 @@
 
 This project is intentionally lightweight. It is meant to document and demonstrate the API shape, not to serve as a production image generation product.
 
-## ⚠️ Important status
+> [!WARNING]
+> Localframe is a demonstration app and is not production-ready. Model output may be inaccurate, incomplete, or misleading.
 
-### Showcase only
-
-Localframe is a demonstration project. It is not production-ready, not maintained as a compatibility layer, and generated output may be inaccurate, incomplete, or misleading.
-
-### iOS 27 warning
+## ⚠️ iOS 27 warning
 
 This app uses Apple’s `ImageCreator` class for direct programmatic on-device image generation. `ImageCreator` is deprecated as of iOS 27. Apple announced on June 11, 2026 that the class is being discontinued and will no longer work on iOS 27, iPadOS 27, macOS 27, and visionOS 27 or later.
 
