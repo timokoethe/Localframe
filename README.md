@@ -11,24 +11,18 @@
 
 This project is intentionally lightweight. It is meant to document and demonstrate the API shape, not to serve as a production image generation product.
 
-## ⚠️ Important status
+> [!WARNING]
+> Localframe is a demonstration app and is not production-ready. Model output may be inaccurate, incomplete, or misleading.
 
-### Showcase only
-
-Localframe is a demonstration project. It is not production-ready, not maintained as a compatibility layer, and generated output may be inaccurate, incomplete, or misleading.
-
-### iOS 27 warning
-
-This app uses Apple’s `ImageCreator` class for direct programmatic on-device image generation. `ImageCreator` is deprecated as of iOS 27. Apple announced on June 11, 2026 that the class is being discontinued and will no longer work on iOS 27, iPadOS 27, macOS 27, and visionOS 27 or later.
-
-What that means for this repository:
-
-- iOS 26 is the intended showcase target.
-- On iOS 27 beta releases, the code continues to compile with Xcode warnings, but apps using `ImageCreator` do not function in TestFlight and cause a runtime error.
-- For public iOS 27 releases, code using `ImageCreator` no longer compiles and those features no longer work.
-- Apple recommends migrating to the system-managed Image Playground sheet or another image generation service. A remote service is intentionally outside this repository's fully on-device scope.
-
-See Apple’s announcement: [Deprecation of the ImageCreator class](https://developer.apple.com/news/?id=dz9wvq0r).
+> [!IMPORTANT]
+> This app uses Apple’s `ImageCreator` class for direct programmatic on-device image generation. `ImageCreator` is deprecated as of iOS 27. Apple announced on June 11, 2026 that the class is being discontinued and will no longer work on iOS 27, iPadOS 27, macOS 27, and visionOS 27 or later.
+> What that means for this repository:
+> - iOS 26 is the intended showcase target.
+> - On iOS 27 beta releases, the code continues to compile with Xcode warnings, but apps using `ImageCreator` do not function in TestFlight and cause a runtime error.
+> - For public iOS 27 releases, code using `ImageCreator` no longer compiles and those features no longer work.
+> - Apple recommends migrating to the system-managed Image Playground sheet or another image generation service. A remote service is intentionally outside this repository's fully on-device scope.
+>
+> See Apple’s announcement: [Deprecation of the ImageCreator class](https://developer.apple.com/news/?id=dz9wvq0r).
 
 ## ✨ Features
 
