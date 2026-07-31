@@ -12,7 +12,9 @@ Preserve these product invariants:
 - `ImageCreator`, the API used here for direct programmatic on-device image generation, is deprecated as of iOS 27. Apple has announced that the class is being discontinued and will no longer work on iOS 27 or later. Do not add an unsupported compatibility shim or raise the deployment target as a workaround. Migrating to the system Image Playground sheet would be a product-level change because it replaces the current direct generation flow.
 - User-facing text is currently written in English.
 
-Keep `README.md` in sync when features, requirements, privacy properties, limitations, or platform support change. In particular, keep its `ImageCreator` discontinuation guidance accurate.
+Keep `README.md` in sync when features, requirements, privacy properties, limitations, or platform support change. In particular, keep its feature links and `ImageCreator` discontinuation guidance accurate.
+
+Every app feature must have a focused Markdown file under `docs/features/`, based on `docs/features/_template.md`. When a change adds, removes, or alters feature behavior, requirements, privacy properties, limitations, or platform support, update the affected feature documentation in the same change. Add a new feature file when no existing document fits, keep its frontmatter status accurate, and do not leave acceptance criteria that contradict the implementation.
 
 ## Repository map
 
@@ -32,6 +34,7 @@ Localframe/
 
 Icon.icon/                          # App icon source
 Localframe.xcodeproj/               # Xcode project and shared scheme
+docs/features/                      # Per-feature documentation and template
 ```
 
 The Xcode project uses a file-system-synchronized source group. Add source files under `Localframe/`; do not edit `project.pbxproj` merely to register them. Change the project file only for build settings, targets, capabilities, or resource configuration.
