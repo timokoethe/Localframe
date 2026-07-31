@@ -26,10 +26,14 @@ This project is intentionally lightweight. It is meant to document and demonstra
 
 ## ✨ Features
 
-- 🖼️ **Image Playground integration**: Uses Apple’s `ImageCreator` API.
-- 🌊 **Streaming results**: Consumes generated images asynchronously as they arrive.
-- 🧑‍🎨 **Minimalist Prompt UI**: Clean SwiftUI interface for crafting prompts and viewing output.
-- 🗑️ **No persistent storage**: Generated images are kept in memory only and are not saved by the app.
+- 🖼️ **[Prompt-based image generation](docs/features/prompt-based-image-generation.md)**: Creates up to two images with Apple’s on-device `ImageCreator` API.
+- 🧑‍🎨 **[Generation style selection](docs/features/generation-style-selection.md)**: Offers Animation, Illustration, and Sketch styles.
+- ⏳ **[Generation progress](docs/features/generation-progress.md)**: Shows dedicated progress feedback while images are being created.
+- 🌊 **[Streamed image results](docs/features/streamed-image-results.md)**: Handles generated images incrementally as they arrive.
+- 🖼️ **[Generated image results](docs/features/generated-image-results.md)**: Presents every image returned by the generation stream.
+- 🔄 **[Restart generation](docs/features/restart-generation.md)**: Clears the current prompt and results for a new generation cycle.
+- ⚠️ **[Error presentation](docs/features/error-presentation.md)**: Displays framework errors or a generic fallback.
+- 🗑️ **[In-memory data handling](docs/features/in-memory-data-handling.md)**: Keeps prompts and generated images in memory without persistence or uploads.
 
 ## Requirements
 
