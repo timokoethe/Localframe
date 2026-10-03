@@ -1,0 +1,3 @@
+// Copy to Local.xcconfig and set your own signing values for device builds.
+LOCALFRAME_DEVELOPMENT_TEAM = YOUR_TEAM_ID
+LOCALFRAME_BUNDLE_IDENTIFIER = com.yourname.Localframe

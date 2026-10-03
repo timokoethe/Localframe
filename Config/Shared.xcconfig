@@ -1,0 +1,9 @@
+// Defaults that keep unsigned builds portable across machines.
+LOCALFRAME_DEVELOPMENT_TEAM =
+LOCALFRAME_BUNDLE_IDENTIFIER = com.example.Localframe
+
+// Optional per-developer overrides. This file is intentionally not committed.
+#include? "Local.xcconfig"
+
+DEVELOPMENT_TEAM = $(LOCALFRAME_DEVELOPMENT_TEAM)
+PRODUCT_BUNDLE_IDENTIFIER = $(LOCALFRAME_BUNDLE_IDENTIFIER)
